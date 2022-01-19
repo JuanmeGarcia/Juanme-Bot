@@ -19,12 +19,12 @@ for (const file of events) {
 }
 
 fs.readdir("./commands/", (err, files) => {
-    if(err) console.error(error)
+    if(err) console.error(err)
     let jsfiles = files.filter(f => f.split(".").pop() === "js")
     if (jsfiles.length <= 0) {
-        return console.log("No commands to log in FOLDER NAME")
+        return console.log("No commands to log in ./commands")
     }
-    console.log(`Loading ${jsfiles.length} commands from FOLDER NAME...`)
+    console.log(`Loading ${jsfiles.length} commands from ./commands...`)
     jsfiles.forEach((f,i) => {
         let props = require(`./commands/${f}`)
         console.log(`${i + 1}: ${f} loaded!`)
